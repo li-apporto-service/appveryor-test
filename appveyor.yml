@@ -1,0 +1,10 @@
+branches:
+  only:
+    - main
+    - develop
+image: Visual Studio 2022
+environment:
+  EnableNuGetPackageRestore: true
+
+build_script:
+  - ps: .\build.ps1
