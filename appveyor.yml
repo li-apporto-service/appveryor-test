@@ -5,10 +5,14 @@ branches:
 image: Visual Studio 2022
 environment:
   EnableNuGetPackageRestore: true
+  APPVEYOR_RDP_PASSWORD: QWER!@#$qwer1234
+  
+
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 build_script:
   - ps: .\build.ps1
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
 on_finish:
